@@ -1,0 +1,8 @@
+{
+  "name": "tarmac",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Wolfy87/tarmac.git"
+  }
+}
