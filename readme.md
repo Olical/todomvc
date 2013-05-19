@@ -78,6 +78,7 @@ We also have a number of in-progress applications in Labs:
 - [DeftJS](http://deftjs.org/)
 - [Aria Templates](http://ariatemplates.com/)
 - [Enyo + Backbone.js](http://enyojs.com/)
+- [Tarmac](https://github.com/Wolfy87/tarmac)
 
 ## Live demos
 
