@@ -2,7 +2,8 @@ requirejs.config({
 	paths: {
 		text: '../components/requirejs-text/text',
 		Handlebars: '../components/handlebars.js/dist/handlebars',
-		templates: '../templates'
+		templates: '../templates',
+		tarmac: '../components/tarmac/src'
 	},
 	shim: {
 		Handlebars: {
@@ -12,7 +13,8 @@ requirejs.config({
 });
 
 define([
-	'Handlebars'
-], function (Handlebars) {
+	'routers/HashRouter'
+], function (HashRouter) {
 	'use strict';
+	var router = new HashRouter();
 });
