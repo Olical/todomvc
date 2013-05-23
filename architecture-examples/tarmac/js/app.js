@@ -16,13 +16,13 @@ define([
 	'storage/TodoStorage',
 	'routers/HashRouter',
 	'controllers/TodoListController'
-], function (Storage, HashRouter, TodoListController) {
+], function (TodoStorage, HashRouter, TodoListController) {
 	'use strict';
 
 	var router = new HashRouter();
 
 	router.setContextObject({
-		storage: new Storage()
+		storage: new TodoStorage()
 	});
 
 	router.addRoute('root', '', TodoListController, 'list-all');
