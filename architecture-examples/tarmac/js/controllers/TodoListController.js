@@ -25,6 +25,11 @@ define([
 	 * @param {Object} context Object of information that can be passed down from the router.
 	 */
 	TodoListController.prototype._listAll = function(action, request, context) {
+		var todos = context.storage.getAllTodos();
+
+		if (todos.length === 0) {
+			context.elements.app.classList.add('no-todos');
+		}
 	};
 
 	return TodoListController;

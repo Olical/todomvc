@@ -22,7 +22,10 @@ define([
 	var router = new HashRouter();
 
 	router.setContextObject({
-		storage: new TodoStorage()
+		storage: new TodoStorage(),
+		elements: {
+			app: document.getElementById('todoapp')
+		}
 	});
 
 	router.addRoute('root', '', TodoListController, 'list-all');
