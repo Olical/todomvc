@@ -53,7 +53,7 @@ define([
 	 * @type {String}
 	 * @private
 	 */
-	HashRouter.prototype._hashUrlIdentifier = '#!/';
+	HashRouter.prototype._hashUrlIdentifier = '#/';
 
 	return HashRouter;
 });
