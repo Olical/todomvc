@@ -13,8 +13,18 @@ requirejs.config({
 });
 
 define([
-	'routers/HashRouter'
-], function (HashRouter) {
+	'tarmac/Storage',
+	'routers/HashRouter',
+	'controllers/TodoListController'
+], function (Storage, HashRouter, TodoListController) {
 	'use strict';
+
 	var router = new HashRouter();
+
+	router.setContextObject({
+		storage: new Storage()
+	});
+
+	router.addRoute('root', '', TodoListController, 'list-all');
+	router.routeCurrentHash();
 });

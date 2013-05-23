@@ -12,8 +12,7 @@ define([
 	 */
 	function HashRouter() {
 		Router.call(this);
-		window.addEventListener('hashchange', this._routeCurrentHash.bind(this));
-		this._routeCurrentHash();
+		window.addEventListener('hashchange', this.routeCurrentHash.bind(this));
 	}
 
 	HashRouter.prototype = Object.create(Router.prototype);
@@ -24,9 +23,8 @@ define([
 	 * the hash changes.
 	 *
 	 * @return {Object} Current instance for chaining.
-	 * @private
 	 */
-	HashRouter.prototype._routeCurrentHash = function () {
+	HashRouter.prototype.routeCurrentHash = function () {
 		var hash = window.location.hash;
 		var cleanHash = hash.replace(this._hashUrlIdentifier, '');
 		this.route(cleanHash);
