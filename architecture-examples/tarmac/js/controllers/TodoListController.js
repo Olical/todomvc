@@ -1,6 +1,8 @@
 define([
 	'tarmac/Controller'
 ], function(Controller) {
+	'use strict';
+
 	/**
 	 * Base controller for the application. Lists all todo items. Contains
 	 * multiple actions to route in different ways.
