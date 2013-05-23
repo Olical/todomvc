@@ -13,7 +13,7 @@ requirejs.config({
 });
 
 define([
-	'tarmac/Storage',
+	'storage/TodoStorage',
 	'routers/HashRouter',
 	'controllers/TodoListController'
 ], function (Storage, HashRouter, TodoListController) {
