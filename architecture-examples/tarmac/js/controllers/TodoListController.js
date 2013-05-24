@@ -27,8 +27,8 @@ define([
 	TodoListController.prototype._listAll = function(action, request, context) {
 		var todos = context.storage.getAllTodos();
 
-		if (todos.length === 0) {
-			context.elements.app.classList.add('no-todos');
+		if (todos.length > 0) {
+			context.elements.app.classList.remove('no-todos');
 		}
 	};
 
