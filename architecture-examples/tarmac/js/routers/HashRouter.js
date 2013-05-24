@@ -1,6 +1,6 @@
 define([
 	'tarmac/Router'
-], function(Router) {
+], function (Router) {
 	'use strict';
 
 	/**

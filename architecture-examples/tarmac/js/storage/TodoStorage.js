@@ -1,7 +1,7 @@
 define([
 	'tarmac/Storage',
 	'models/TodoModel'
-], function(Storage, TodoModel) {
+], function (Storage, TodoModel) {
 	'use strict';
 
 	/**
@@ -21,7 +21,7 @@ define([
 	 *
 	 * @return {Object[]} An array of todo models.
 	 */
-	TodoStorage.prototype.getAllTodos = function() {
+	TodoStorage.prototype.getAllTodos = function () {
 		return this.get(TodoModel);
 	};
 

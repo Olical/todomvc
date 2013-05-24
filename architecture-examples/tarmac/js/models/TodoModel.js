@@ -1,6 +1,6 @@
 define([
 	'tarmac/Model'
-], function(Model) {
+], function (Model) {
 	'use strict';
 
 	/**

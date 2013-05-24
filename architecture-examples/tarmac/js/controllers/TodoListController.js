@@ -1,6 +1,6 @@
 define([
 	'tarmac/Controller'
-], function(Controller) {
+], function (Controller) {
 	'use strict';
 
 	/**
@@ -24,7 +24,7 @@ define([
 	 * @param {Object} request Contains values extracted from the URL.
 	 * @param {Object} context Object of information that can be passed down from the router.
 	 */
-	TodoListController.prototype._listAll = function(action, request, context) {
+	TodoListController.prototype._listAll = function (action, request, context) {
 		var todos = context.storage.getAllTodos();
 
 		if (todos.length > 0) {
