@@ -25,5 +25,19 @@ define([
 		return this.get(TodoModel);
 	};
 
+	/**
+	 * Creates a todo and stores it, then returns the built object.
+	 *
+	 * @param {String} value The value to store inside the todo.
+	 * @return {Object} A built todo.
+	 */
+	TodoStorage.prototype.createTodo = function (value) {
+		var todo = new TodoModel({
+			value: value
+		});
+		this.set(TodoModel, todo);
+		return todo;
+	};
+
 	return TodoStorage;
 });

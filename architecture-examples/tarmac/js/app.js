@@ -24,7 +24,8 @@ define([
 	router.setContextObject({
 		storage: new TodoStorage(),
 		elements: {
-			app: document.getElementById('todoapp')
+			app: document.getElementById('todoapp'),
+			input: document.getElementById('new-todo')
 		}
 	});
 
