@@ -54,9 +54,34 @@ define([
 	 */
 	TodoListController.prototype._listAll = function (action, request, context) {
 		var todos = context.storage.getAllTodos();
+		this._displayInitialTodos(todos);
+	};
 
-		if (todos.length > 0) {
-			context.elements.app.classList.remove('no-todos');
+	/**
+	 * Displays the initial todos and hooks up all of the events.
+	 *
+	 * @param {Object[]} todos The todos you want to display.
+	 * @private
+	 */
+	TodoListController.prototype._displayInitialTodos = function (todos) {
+		this._manageNoTodosClass(todos.length);
+	};
+
+	/**
+	 * Adds or removes the no-todos class based on the amount of todos.
+	 *
+	 * @param {Number} todoCount
+	 * @private
+	 */
+	TodoListController.prototype._manageNoTodosClass = function (todoCount) {
+		var classList = this.context.elements.app.classList;
+		var noTodosClass = 'no-todos';
+
+		if (todoCount === 0) {
+			classList.add(noTodosClass);
+		}
+		else {
+			classList.remove(noTodosClass);
 		}
 	};
 
