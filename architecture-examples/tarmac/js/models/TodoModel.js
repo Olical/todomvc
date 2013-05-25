@@ -27,5 +27,15 @@ define([
 		done: false
 	};
 
+	/**
+	 * Returns the current value to be used as a salt.
+	 *
+	 * @return {String}
+	 * @private
+	 */
+	TodoModel.prototype._getSalt = function () {
+		return this.get('value');
+	};
+
 	return TodoModel;
 });

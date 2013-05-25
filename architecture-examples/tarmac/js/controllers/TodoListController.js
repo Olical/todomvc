@@ -28,7 +28,6 @@ define([
 	 * @private
 	 */
 	TodoListController.prototype._handleExecution = function (action, request, context) {
-		this.context = context;
 		this.createView = new CreateTodoView(context.elements.input);
 		this.createView.addListener('input', this._handleInput.bind(this));
 	};
@@ -41,7 +40,7 @@ define([
 	 * @private
 	 */
 	TodoListController.prototype._handleInput = function (value) {
-		this.context.storage.createTodo(value);
+		this.current.context.storage.createTodo(value);
 	};
 
 	/**
@@ -74,7 +73,7 @@ define([
 	 * @private
 	 */
 	TodoListController.prototype._manageNoTodosClass = function (todoCount) {
-		var classList = this.context.elements.app.classList;
+		var classList = this.current.context.elements.app.classList;
 		var noTodosClass = 'no-todos';
 
 		if (todoCount === 0) {
