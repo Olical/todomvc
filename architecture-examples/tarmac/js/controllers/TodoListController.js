@@ -15,11 +15,22 @@ define([
 	function TodoListController() {
 		Controller.call(this);
 		this.storage = new TodoStorage();
+		this.storage.addListener('change', this._handleStorageChange.bind(this));
 		this.addListener('executed', this._handleExecution);
 		this.addListener('executed:list-all', this._listAll);
 	}
 
 	TodoListController.prototype = Object.create(Controller.prototype);
+
+	/**
+	 * Performs all of the updating that is required after the storage has
+	 * changed in any way.
+	 *
+	 * @private
+	 */
+	TodoListController.prototype._handleStorageChange = function () {
+		this.emitEvent('executed:' + this.current.action);
+	};
 
 	/**
 	 * Sets up the controller by stitching into the DOM.
@@ -55,16 +66,16 @@ define([
 	 */
 	TodoListController.prototype._listAll = function (action, request, context) {
 		var todos = this.storage.getAllTodos();
-		this._displayInitialTodos(todos);
+		this._displayTodos(todos);
 	};
 
 	/**
-	 * Displays the initial todos and hooks up all of the events.
+	 * Displays the todos.
 	 *
 	 * @param {Object[]} todos The todos you want to display.
 	 * @private
 	 */
-	TodoListController.prototype._displayInitialTodos = function (todos) {
+	TodoListController.prototype._displayTodos = function (todos) {
 		this._manageNoTodosClass(todos.length);
 	};
 
