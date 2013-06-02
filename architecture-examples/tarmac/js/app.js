@@ -13,16 +13,14 @@ requirejs.config({
 });
 
 define([
-	'storage/TodoStorage',
 	'routers/HashRouter',
 	'controllers/TodoListController'
-], function (TodoStorage, HashRouter, TodoListController) {
+], function (HashRouter, TodoListController) {
 	'use strict';
 
 	var router = new HashRouter();
 
 	router.setContextObject({
-		storage: new TodoStorage(),
 		elements: {
 			app: document.getElementById('todoapp'),
 			input: document.getElementById('new-todo')

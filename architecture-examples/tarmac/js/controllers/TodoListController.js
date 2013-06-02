@@ -1,7 +1,8 @@
 define([
 	'tarmac/Controller',
+	'storage/TodoStorage',
 	'views/CreateTodoView'
-], function (Controller, CreateTodoView) {
+], function (Controller, TodoStorage, CreateTodoView) {
 	'use strict';
 
 	/**
@@ -13,6 +14,7 @@ define([
 	 */
 	function TodoListController() {
 		Controller.call(this);
+		this.storage = new TodoStorage();
 		this.addListener('executed', this._handleExecution);
 		this.addListener('executed:list-all', this._listAll);
 	}
@@ -40,7 +42,7 @@ define([
 	 * @private
 	 */
 	TodoListController.prototype._handleInput = function (value) {
-		this.current.context.storage.createTodo(value);
+		this.storage.createTodo(value);
 	};
 
 	/**
@@ -52,7 +54,7 @@ define([
 	 * @private
 	 */
 	TodoListController.prototype._listAll = function (action, request, context) {
-		var todos = context.storage.getAllTodos();
+		var todos = this.storage.getAllTodos();
 		this._displayInitialTodos(todos);
 	};
 
