@@ -1,8 +1,9 @@
 define([
 	'tarmac/Controller',
 	'storage/TodoStorage',
-	'views/CreateTodoView'
-], function (Controller, TodoStorage, CreateTodoView) {
+	'views/CreateTodoView',
+	'views/TodoListView'
+], function (Controller, TodoStorage, CreateTodoView, TodoListView) {
 	'use strict';
 
 	/**
@@ -43,6 +44,7 @@ define([
 	TodoListController.prototype._handleExecution = function (action, request, context) {
 		this.createView = new CreateTodoView(context.elements.input);
 		this.createView.addListener('input', this._handleInput.bind(this));
+		this.listView = new TodoListView(context.elements.list);
 	};
 
 	/**
@@ -76,7 +78,27 @@ define([
 	 * @private
 	 */
 	TodoListController.prototype._displayTodos = function (todos) {
+		var todosData = this._extractTodoData(todos);
+		this.listView.render(todosData);
 		this._manageNoTodosClass(todos.length);
+	};
+
+	/**
+	 * Extracts the data objects out of an array of todos.
+	 *
+	 * @param {TodoModel[]} todos The todo model instances.
+	 * @return {Object[]} The extracted data objects.
+	 * @private
+	 */
+	TodoListController.prototype._extractTodoData = function (todos) {
+		var i = todos.length;
+		var todosData = [];
+
+		while (i--) {
+			todosData.push(todos[i].get());
+		}
+
+		return todosData;
 	};
 
 	/**

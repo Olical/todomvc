@@ -23,7 +23,8 @@ define([
 	router.setContextObject({
 		elements: {
 			app: document.getElementById('todoapp'),
-			input: document.getElementById('new-todo')
+			input: document.getElementById('new-todo'),
+			list: document.getElementById('todo-list')
 		}
 	});
 
